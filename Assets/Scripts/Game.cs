@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
@@ -11,7 +12,8 @@ public class Game : MonoBehaviour
 {
     public static Game Instance { get; private set; }
     private Coroutine imageCoroutine;
-    
+    [SerializeField] private TMP_Text loadingErrorLog;
+    public TMP_Text LoadingErrorLog{get{return loadingErrorLog;} set{loadingErrorLog = value;}}
     [SerializeField] private GameObject cardsGroup;
     [SerializeField] private List<Vector2> randomCardsPositions;
     [SerializeField] private List<int> nonRepetingNumbers;
@@ -118,6 +120,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.StopMainAudio();
         StartCoroutine(LoadGame());
     }
 
@@ -138,6 +141,7 @@ public class Game : MonoBehaviour
     }
     public void StartGame()//EventUse
     {
+        GameManager.Instance.PlayMainAudio();
         StartCoroutine(DisableMemoryGameButton());
         OnStartOfTheGameEvent?.Invoke();
         StartCoroutine(OnStartGame());

@@ -41,6 +41,7 @@ public class RetriveImages : MonoBehaviour
                 case UnityWebRequest.Result.ConnectionError:
                 Debug.LogError(webRequest.error);
                 Debug.Log("Conection Error");
+                Game.Instance.LoadingErrorLog.text = "No esta activado el servidor o el puerto ingresado es el incorreto.";
                 break;
                 default:
                 Debug.Log("Something went wrong");
