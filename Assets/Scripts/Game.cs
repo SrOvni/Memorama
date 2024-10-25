@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
 {
     public static Game Instance { get; private set; }
     private Coroutine imageCoroutine;
+    
     [SerializeField] private GameObject cardsGroup;
     [SerializeField] private List<Vector2> randomCardsPositions;
     [SerializeField] private List<int> nonRepetingNumbers;
@@ -22,9 +23,13 @@ public class Game : MonoBehaviour
     [SerializeField] GridLayoutGroup gridLayoutGroup;
     private bool imageAssigmentFinished = false;
     [SerializeField] private GameObject LoadingCanvas;
-    private Card card1 = null;
-    private Card card2 = null;
+    [SerializeField] private GameObject LoseCanvas;
+    [SerializeField] private GameObject WinCanvas;
+    [SerializeField] private Card card1 = null;
+    [SerializeField] private Card card2 = null;
     [SerializeField] private int numberOfPairs = 0;
+
+    [SerializeField] private Slider loadingSlider;
 
     #region returnToFalse
 
@@ -35,6 +40,7 @@ public class Game : MonoBehaviour
     private bool randomAssigmentFinished = false;
     private bool finishedFliping = false;
     private bool buttonsDisable = false;
+    private bool loadingAnimationFinished = false;
 
     #endregion
     [SerializeField] private float timeToFlipBackCards = 1;
@@ -45,6 +51,10 @@ public class Game : MonoBehaviour
     [SerializeField] private UnityEvent OnRestartGameEvent;
     [SerializeField] private UnityEvent OnEndOfTheGameEvent;
     [SerializeField] private UnityEvent OnStartOfTheGameEvent;
+    [SerializeField] private UnityEvent OnCorrectPair;
+    [SerializeField] private UnityEvent OnWrongPair;
+    [SerializeField] private UnityEvent OnWinGame;
+    [SerializeField] private UnityEvent OnLoseGame;
 
     private void Awake()
     {
@@ -57,6 +67,7 @@ public class Game : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
         randomCardsPositions = new List<Vector2>(cardsGroup.transform.childCount);
         ListWithRandomNonRepetingNumbers();
         GetRandomPositions();
@@ -81,6 +92,7 @@ public class Game : MonoBehaviour
         }
         if (card1.FaceSprite.name == card2.FaceSprite.name)
         {
+            OnCorrectPair?.Invoke();
             card1.GetComponent<Button>().enabled = false;
             card1 = null;
             card2.GetComponent<Button>().enabled = false;
@@ -89,6 +101,7 @@ public class Game : MonoBehaviour
         }
         else if (card1 is not null && card2 is not null)
         {
+            OnWrongPair?.Invoke();
             StartCoroutine(WrongPairAniamtion());
         }
 
@@ -112,13 +125,20 @@ public class Game : MonoBehaviour
     {
         Debug.Log("Loading game...");
         yield return new WaitUntil(() => imageAssigmentFinished);
+        loadingSlider.DOValue(1,1).OnComplete(() =>
+            {
+                loadingAnimationFinished = true;
+            }
+        );
+        yield return new WaitUntil(() => loadingAnimationFinished);
+        yield return new WaitForSeconds(timeToFlipNextCard);
         LoadingCanvas.SetActive(false);
         StartCoroutine(OnStartGame());
 
     }
     public void StartGame()//EventUse
     {
-        
+        StartCoroutine(DisableMemoryGameButton());
         OnStartOfTheGameEvent?.Invoke();
         StartCoroutine(OnStartGame());
     }
@@ -139,7 +159,6 @@ public class Game : MonoBehaviour
         GameManager.Instance.StartGame = true;
         StartCoroutine(EnableMemoryGameButtons());
         yield return new WaitUntil(() => buttonsEnabled);
-        //Falta habilitar los botones de las cartas
         Timer.Instance.StartTimer();
         yield return null;
     }
@@ -153,7 +172,7 @@ public class Game : MonoBehaviour
     private IEnumerator OnEndGame()
     {
         Debug.Log("Game ended");
-
+        StartCoroutine(DisableMemoryGameButton());
         Timer.Instance.StopTimer();
 
         StartCoroutine(DisableMemoryGameButton());
@@ -175,9 +194,10 @@ public class Game : MonoBehaviour
         Debug.Log("Restarting Game...");
         GameManager.Instance.StartGame = false;
 
-        yield return new WaitUntil(() => endOfGameAniamtionEnded);
         StartCoroutine(GameRestartAnimation());
         yield return new WaitUntil(() => endOfGameAniamtionEnded);
+        Timer.Instance.RestartTime();
+        StartGame();
         //Falta deshabilitar los botones de las cartas
         yield return null;
     }
@@ -247,7 +267,8 @@ public class Game : MonoBehaviour
         gridLayoutGroup.enabled = false;
         for (int i = 0; i < cardsGroup.transform.childCount; i++)
         {
-            cardsGroup.transform.GetChild(i).transform.DOMove(randomCardsPositions[i], 1);
+            cardsGroup.transform.GetChild(i).transform.DOMoveX(randomCardsPositions[i].x, 1);
+            cardsGroup.transform.GetChild(i).transform.DOMoveY(randomCardsPositions[i].y, 1);
         }
         yield return new WaitForSeconds(timeToFlipBackCards);
         gridLayoutGroup.enabled = false;
@@ -277,10 +298,15 @@ public class Game : MonoBehaviour
 
         if (playerWinGame)
         {
+            
+            OnWinGame?.Invoke();
+            WinCanvas.SetActive(true);
             Debug.Log("Player Win");
         }
         else
         {
+            LoseCanvas.SetActive(true);
+            OnLoseGame?.Invoke();
             Debug.Log("Player lose");
         }
         endOfGameAniamtionEnded = true;
@@ -289,8 +315,16 @@ public class Game : MonoBehaviour
 
     IEnumerator GameRestartAnimation()
     {
-
-
+        ListWithRandomNonRepetingNumbers();
+        GetRandomPositions();
+        for(int i = 0;i < cardsGroup.transform.childCount; i++)
+        {
+            var card = cardsGroup.transform.GetChild(i).GetComponent<Card>();
+            if(card.FacingFront)
+            {
+                card.FlipCard();
+            }
+        }
         endOfGameAniamtionEnded = true;
         yield return null;
     }

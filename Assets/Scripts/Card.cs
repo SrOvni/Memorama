@@ -13,6 +13,8 @@ public class Card : MonoBehaviour
     private Image _currentImage;
     public Image CurrentImage{get{return _currentImage;}set {_currentImage = value;}}
     private bool endOfFlipAnimation = false;
+    private bool facingFront = false;
+    public bool FacingFront{get{return facingFront;}set {facingFront = value;}}
     [SerializeField] private UnityEvent OnFlipCard;
     private void Awake() {
 
@@ -23,13 +25,16 @@ public class Card : MonoBehaviour
         _currentImage.sprite = backSprite;
     }
     
-    private bool facingFront = false;
     
     public void FlipCard()
     {
         OnFlipCard?.Invoke();
         FlipAnimation();
     }
+    public void ButtonWorking()
+    {
+        Debug.Log("Working");
+    } 
     private void FlipAnimation()
     {
         if(facingFront)

@@ -15,7 +15,7 @@ public class RetriveImages : MonoBehaviour
     
     
     public ImageList ImagesList {get;set;}
-    [SerializeField] string URL = "https://localhost:4000/allImagesAsStrings";
+    private string URL = "http://localhost:4001/images/";
     IEnumerator GetRequest(string uri)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
@@ -34,6 +34,13 @@ public class RetriveImages : MonoBehaviour
                     Game.AttempedToGetUris = true;
                     Debug.LogWarning("Uris weren't obtained");
                 }
+                break;
+                case UnityWebRequest.Result.InProgress:
+                Debug.Log("In Progress");
+                break;
+                case UnityWebRequest.Result.ConnectionError:
+                Debug.LogError(webRequest.error);
+                Debug.Log("Conection Error");
                 break;
                 default:
                 Debug.Log("Something went wrong");

@@ -30,5 +30,8 @@ public class GameManager : MonoBehaviour
     {
         mainAudio.Play();
     }
-    
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
