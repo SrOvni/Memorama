@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
     
+    [SerializeField] private bool useServer = false;
+    public bool UseServer { get { return useServer; } set { useServer = value; } }
     [SerializeField] private int imagesRequired = 8;
     public int ImagesRequired{get{return imagesRequired;}}
     private bool startGame = false;

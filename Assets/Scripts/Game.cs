@@ -122,6 +122,9 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        /* #if UNITY_IOS
+        Screen.autorotateToLandscapeRight = true;
+        #endif */
         
         StartCoroutine(LoadGame());
     }
@@ -210,6 +213,12 @@ public class Game : MonoBehaviour
 
     private IEnumerator AssignImages()
     {
+        if(GameManager.Instance is null)yield return new WaitUntil(()=> GameManager.Instance is not null);
+        if(!GameManager.Instance.UseServer)
+        {
+            imageAssigmentFinished = true;
+            yield break;
+        }
         yield return new WaitUntil(() => CharacterList is not null || attempedToGetUris);
         if (attempedToGetUris)
             yield break;

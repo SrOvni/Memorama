@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 
 public class RetriveImages : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class RetriveImages : MonoBehaviour
     private string URL = "http://localhost:4001/images/";
     IEnumerator GetRequest(string uri)
     {
+        if(GameManager.Instance is null)yield return new WaitUntil(()=> GameManager.Instance is not null);
+        if(!GameManager.Instance.UseServer)yield break;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             yield return webRequest.SendWebRequest();
