@@ -10,13 +10,15 @@ public class GameManager : MonoBehaviour
     public int ImagesRequired{get{return imagesRequired;}}
     private bool startGame = false;
     AudioSource[] audioSources; 
-    AudioSource mainAudio;
+    
+    [SerializeField] AudioSource mainAudio;
+    public AudioSource MainAudio{get{return mainAudio;}set{mainAudio = value;}}
     AudioSource sfx;
     public AudioSource SFX {get{return sfx;} set{sfx = value;}}
+    [SerializeField] AudioClip mainAudioClip;
     public bool StartGame{get{return startGame;}set{startGame = value;}}
     private void Awake() {
         audioSources = GetComponents<AudioSource>();
-        mainAudio = audioSources[0];
         SFX = audioSources[1];
         if(Instance is null)
         {
@@ -25,14 +27,17 @@ public class GameManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+        
     }
     public void PlayMainAudio()
     {
+        mainAudio.enabled = true;
         mainAudio.Play();
     }
     public void StopMainAudio()
     {
         mainAudio.Stop();
+        mainAudio.enabled = false;
     }
     public void ExitGame()
     {

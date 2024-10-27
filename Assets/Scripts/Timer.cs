@@ -49,8 +49,9 @@ public class Timer : MonoBehaviour
     }
     public void RestartTime()
     {
+        Debug.Log("Timer restarted");
+        currentTime = time;
         timer.text = $"{currentTime}:00";
         timer.color = Color.cyan;
-        currentTime = time;
     }
 }

@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class Game : MonoBehaviour
@@ -17,6 +18,7 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject cardsGroup;
     [SerializeField] private List<Vector2> randomCardsPositions;
     [SerializeField] private List<int> nonRepetingNumbers;
+    public static List<RetriveImages.Character> CharacterList{get; set;}
     public static List<string> Uries { get; set; }
     public static bool AttempedToGetUris { get { return attempedToGetUris; } set { attempedToGetUris = value; } }
     private static bool attempedToGetUris = false;
@@ -120,7 +122,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.StopMainAudio();
+        
         StartCoroutine(LoadGame());
     }
 
@@ -136,12 +138,12 @@ public class Game : MonoBehaviour
         yield return new WaitUntil(() => loadingAnimationFinished);
         yield return new WaitForSeconds(timeToFlipNextCard);
         LoadingCanvas.SetActive(false);
-        StartCoroutine(OnStartGame());
+        StartGame();
 
     }
     public void StartGame()//EventUse
-    {
-        GameManager.Instance.PlayMainAudio();
+    {   
+        
         StartCoroutine(DisableMemoryGameButton());
         OnStartOfTheGameEvent?.Invoke();
         StartCoroutine(OnStartGame());
@@ -208,12 +210,12 @@ public class Game : MonoBehaviour
 
     private IEnumerator AssignImages()
     {
-        yield return new WaitUntil(() => Uries is not null || attempedToGetUris);
+        yield return new WaitUntil(() => CharacterList is not null || attempedToGetUris);
         if (attempedToGetUris)
             yield break;
         for (int i = 0; i < GameManager.Instance.ImagesRequired; i++)
         {
-            UnityWebRequest uri = UnityWebRequestTexture.GetTexture(Uries[i]);
+            UnityWebRequest uri = UnityWebRequestTexture.GetTexture(CharacterList[i].ImageURL);
             yield return uri.SendWebRequest();
             if (uri.result == UnityWebRequest.Result.ConnectionError)
             {

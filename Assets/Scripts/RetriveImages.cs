@@ -8,13 +8,16 @@ using Newtonsoft.Json;
 public class RetriveImages : MonoBehaviour
 {
     Coroutine requestCoroutine;
-    public class ImageList
+    public class Character
     {
-        public List<string> uri { get; set; }
+        public string Id { get; set; }
+        public string CharacterName { get; set; }
+        public string ImageURL { get; set; }
     }
+
     
     
-    public ImageList ImagesList {get;set;}
+    public Character CharacterList {get;set;}
     private string URL = "http://localhost:4001/images/";
     IEnumerator GetRequest(string uri)
     {
@@ -26,10 +29,10 @@ public class RetriveImages : MonoBehaviour
             {
                 case UnityWebRequest.Result.Success:
                 Debug.Log("Succesfull conection");
-                List<string> uris = JsonConvert.DeserializeObject<List<string>>(webRequest.downloadHandler.text);
-                if(uris is not null)
+                List<Character> charaterList = JsonConvert.DeserializeObject<List<Character>>(webRequest.downloadHandler.text);
+                if(charaterList is not null)
                 {
-                    Game.Uries = uris;
+                    Game.CharacterList = charaterList;
                 }else{
                     Game.AttempedToGetUris = true;
                     Debug.LogWarning("Uris weren't obtained");

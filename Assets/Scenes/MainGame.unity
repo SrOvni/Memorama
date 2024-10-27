@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -1854,7 +1854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTimer: 0
   timer: {fileID: 772216178}
-  time: 40
+  time: 2
 --- !u!1 &641033622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,7 +2001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -2484,7 +2484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -2882,7 +2882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -3178,7 +3178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -3974,7 +3974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -4136,7 +4136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -4400,7 +4400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -4664,7 +4664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -5228,7 +5228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -5390,7 +5390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -5482,13 +5482,25 @@ MonoBehaviour:
   loadingSlider: {fileID: 1198652342}
   timeToFlipBackCards: 1
   timeToShowPlayerCards: 3
-  timeToFlipNextCard: 0.2
+  timeToFlipNextCard: 0.3
   OnRestartGameEvent:
     m_PersistentCalls:
       m_Calls: []
   OnEndOfTheGameEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1704593982}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStartOfTheGameEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5502,7 +5514,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   OnCorrectPair:
     m_PersistentCalls:
@@ -5577,6 +5589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imagesRequired: 9
+  mainAudio: {fileID: 1704593982}
+  mainAudioClip: {fileID: 8300000, guid: 484825fb20102dd4dae873636212b71f, type: 3}
 --- !u!82 &1704593982
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5588,8 +5602,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 484825fb20102dd4dae873636212b71f, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_PlayOnAwake: 0
+  m_Volume: 0.544
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5684,7 +5698,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5915,7 +5929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -6113,7 +6127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -6408,7 +6422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
@@ -6763,7 +6777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceSprite: {fileID: 0}
-  backsprite: {fileID: 21300000, guid: ab6155762e24f944fa9fddd74f6fae91, type: 3}
+  backsprite: {fileID: 21300000, guid: 1b0b3fcdb5ef9034d872fb7682cc7607, type: 3}
   OnFlipCard:
     m_PersistentCalls:
       m_Calls:
